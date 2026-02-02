@@ -1,0 +1,262 @@
+/* ========== 基础布局 ========== */
+html {
+  background-color: #eee;
+}
+
+body {
+  font-family: Georgia, serif;
+  color: #111;
+  margin: 30px auto;
+  padding: 10px 50px 30px;
+  max-width: 960px;
+  background-color: #fff;
+  line-height: 1.5;
+}
+
+.main-container {
+  width: 100%;
+}
+
+.page-title {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 0.5em;
+  border: none;
+  padding: 0;
+}
+
+/* ========== 顶部区域：头像 + 信息 + 联系 ========== */
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.profile-left {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.04);
+}
+
+.profile-pic-placeholder {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #999;
+}
+
+.name {
+  margin: 0 0 0.3em 0;
+  font-size: 1.6rem;
+  color: #263054;
+  border: none;
+  padding: 0;
+}
+
+.title, .affiliation, .location {
+  margin: 0.2em 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.contact-box {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  font-size: 0.95em;
+}
+
+.contact-box a {
+  display: inline-block;
+  margin-right: 1em;
+  margin-bottom: 0.3em;
+  color: #0a2a9f;
+  text-decoration: none;
+}
+
+.contact-box a:hover {
+  border-bottom: 1px dotted #666;
+}
+
+/* ========== News 打字机 ========== */
+.news-section {
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #263054;
+}
+
+.news-typing-wrapper {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(79, 70, 229, 0.06);
+  font-size: 0.9rem;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.news-label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+  color: #4f46e5;
+}
+
+#news-typing-text {
+  font-weight: 500;
+  color: #333;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 4px;
+  background: #333;
+  animation: blink-cursor 0.9s steps(1) infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ========== 标题 ========== */
+h1, h2 {
+  color: #263054;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 0.3em;
+  margin-top: 2rem;
+  margin-bottom: 0.6em;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+/* ========== 段落与列表 ========== */
+p {
+  margin: 0.5em 0 0.8em 0;
+  line-height: 1.5;
+}
+
+ul {
+  padding-left: 1.2em;
+  margin: 0.5em 0 0.8em 0;
+}
+
+ul.pub-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  margin: 0.4em 0;
+}
+
+a {
+  color: #0a2a9f;
+  text-decoration: none;
+}
+
+a:hover {
+  border-bottom: 1px dotted #666;
+}
+
+/* ========== 出版物条目（带图） ========== */
+.publication-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fdfdfd;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.publication-entry img {
+  width: 160px;
+  min-width: 160px;
+  height: 90px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.publication-entry > div {
+  flex: 1;
+  font-size: 0.95em;
+}
+
+/* ========== 页脚 ========== */
+#footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+#footer a {
+  color: #7ea0b0;
+}
+
+/* ========== 移动端 ========== */
+@media (max-width: 768px) {
+  body {
+    padding: 10px 20px 20px;
+  }
+
+  .top-section {
+    flex-direction: column;
+  }
+
+  .profile-left {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .news-typing-wrapper {
+    white-space: normal;
+    border-radius: 12px;
+  }
+
+  .publication-entry {
+    flex-direction: column;
+  }
+
+  .publication-entry img {
+    width: 100%;
+    min-width: unset;
+    height: auto;
+    max-height: 140px;
+  }
+}

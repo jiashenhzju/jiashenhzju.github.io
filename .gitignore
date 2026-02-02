@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Node (本地开发)
+node_modules/
+
+# Editor
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Optional: keep assets but ignore large/binary if needed
+# *.psd
+# *.zip

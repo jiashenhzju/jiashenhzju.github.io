@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>个人主页 - jiashenhzju.github.io</title>
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+  <div class="main-container">
+    <h1 class="page-title">个人主页</h1>
+
+    <!-- 顶部：头像 + 姓名 + 联系方式 -->
+    <div class="top-section">
+      <div class="profile-left">
+        <img class="profile-pic" src="assets/avatar.jpg" alt="头像" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="profile-pic-placeholder" style="display:none;">👤</div>
+        <div>
+          <h2 class="name">你的名字</h2>
+          <p class="title">🎓 身份 / 职称（如：本科生 / 研究生 / 工程师）</p>
+          <p class="affiliation">学校或单位名称</p>
+          <p class="location">城市, 国家</p>
+        </div>
+      </div>
+      <div class="contact-box">
+        <a href="mailto:your-email@example.com">✉️ your-email@example.com</a><br />
+        <a href="https://scholar.google.com/你的链接" target="_blank" rel="noopener">📚 Google Scholar</a>
+        <a href="https://github.com/jiashenhzju" target="_blank" rel="noopener">💻 GitHub</a>
+      </div>
+    </div>
+
+    <!-- News 打字机 -->
+    <div class="news-section">
+      <div class="section-title">News:</div>
+      <div class="news-typing-wrapper">
+        <span class="news-label">📢</span>
+        <span id="news-typing-text"></span>
+        <span class="typing-cursor"></span>
+      </div>
+    </div>
+
+    <!-- About Me -->
+    <h2>About Me</h2>
+    <p>
+      在这里写一段简短的自我介绍，包括你的教育背景、研究/工作方向、兴趣等。
+      可以多写几段，让访客快速了解你。
+    </p>
+    <p>
+      例如：我是某某大学某某专业的学生/教师，主要研究方向是……欢迎合作与交流！
+    </p>
+
+    <!-- Education -->
+    <h2>Education</h2>
+    <ul>
+      <li><strong>[年份–年份]</strong> 学位，专业，学校名称。</li>
+      <li><strong>[年份–年份]</strong> 学位，专业，学校名称。</li>
+    </ul>
+
+    <!-- Selected Publications -->
+    <h2>Selected Publications</h2>
+    <ul class="pub-list">
+      <li class="publication-entry">
+        <img src="assets/paper1.jpg" alt="论文图" onerror="this.style.display='none'" />
+        <div>
+          <strong>🔥 论文标题</strong><br />
+          作者一, 作者二, 作者三.<br />
+          简短描述或摘要。<br />
+          期刊/会议 &nbsp; [<a href="#">Paper</a>]
+        </div>
+      </li>
+    </ul>
+
+    <!-- Other Works -->
+    <h2>Other Works</h2>
+    <ul>
+      <li>论文/项目标题. 作者. 会议/期刊. [<a href="#">Paper</a>]</li>
+      <li>论文/项目标题. 作者. 会议/期刊. [<a href="#">Paper</a>]</li>
+    </ul>
+
+    <!-- Awards (可选) -->
+    <h2>Awards</h2>
+    <ul>
+      <li>🏅 奖项或荣誉一</li>
+      <li>🏆 奖项或荣誉二</li>
+    </ul>
+
+    <!-- Footer -->
+    <div id="footer">
+      <div id="footer-text">
+        © 2025 你的名字. 最后更新于 2025.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ====== News 打字机 ======
+    document.addEventListener('DOMContentLoaded', function () {
+      const typingElement = document.getElementById('news-typing-text');
+      if (!typingElement) return;
+
+      const newsMessages = [
+        "欢迎访问我的个人主页！",
+        "本页面可部署在 GitHub Pages。",
+        "请根据 README 修改内容与链接。"
+      ];
+
+      let msgIndex = 0;
+      let charIndex = 0;
+      const typingSpeed = 80;
+      const messagePause = 2000;
+      let deleting = false;
+
+      function typeLoop() {
+        const current = newsMessages[msgIndex];
+        if (!current) return;
+
+        if (!deleting) {
+          typingElement.textContent = current.slice(0, charIndex + 1);
+          charIndex++;
+          if (charIndex === current.length) {
+            setTimeout(function () { deleting = true; }, messagePause);
+          }
+        } else {
+          typingElement.textContent = current.slice(0, charIndex - 1);
+          charIndex--;
+          if (charIndex === 0) {
+            deleting = false;
+            msgIndex = (msgIndex + 1) % newsMessages.length;
+          }
+        }
+        const delay = deleting ? 40 : typingSpeed;
+        setTimeout(typeLoop, delay);
+      }
+      typeLoop();
+    });
+  </script>
+</body>
+</html>
