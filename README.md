@@ -37,12 +37,28 @@ git push -u origin main
 
 ### 3. 开启 GitHub Pages
 
-1. 打开仓库 → **Settings** → 左侧 **Pages**。
-2. 在 **Source** 中选择 **Deploy from a branch**。
-3. **Branch** 选 `main`，**Folder** 选 `/ (root)`。
-4. 保存后等待 1–2 分钟。
+1. 打开仓库，点击顶部的 **Settings**（若看不到，点仓库名旁的 **▼** 再选 Settings）。
+2. 在**左侧边栏**找到 **“Code and automation”**，点击 **Pages**。
+3. 在 **Build and deployment** 里，**Source** 一定要选 **Deploy from a branch**（不要选 “GitHub Actions”）。
+4. **Branch** 选 **main**（不要选 gh-pages）。
+5. **Folder**：若页面上有第二个下拉框，选 **/ (root)**；若没有单独的 Folder 选项，只要 Branch 选的是 main，一般就是用仓库根目录，直接点 **Save** 即可。
+6. 等 2–3 分钟，再访问 `https://jiashenhzju.github.io`。
 
-访问 **https://jiashenhzju.github.io** 即可看到你的个人主页。
+**Save 点不了（灰色）时**：GitHub 有时在“没检测到改动”时会禁用 Save。可以这样试：
+- **Branch** 下拉框先选 **None**，点一次 **Save**（会先取消发布）；
+- 再在 **Branch** 里选 **main**，再点 **Save**。
+若仍不行，换浏览器或无痕窗口试一次，或确认仓库里已有 **main** 分支且你有权限。
+
+> 若左侧没有 Pages：在 **“Code and automation”** 区域找。参考：[GitHub 官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+
+---
+
+**关于 404 和 gh-pages 分支**
+
+- **404**：多半是 Pages 当前从 **gh-pages** 分支发布，而那个分支是空的或没有你的 `index.html`。  
+  **处理**：在 Settings → Pages 里把 **Source** 设为 **Deploy from a branch**，**Branch** 选 **main**（不要选 gh-pages），再保存。等几分钟后再打开 `https://jiashenhzju.github.io`。
+- **gh-pages 分支**：是以前用 “GitHub Actions” 或模板时常见的一个分支，用来存发布出来的静态文件。  
+  你现在网站内容在 **main** 上，所以不用管 gh-pages：在 Pages 里选 **main** 即可。若以后确定不用，可以在仓库 **Code** 页切到分支列表里删除 **gh-pages** 分支（可选）。
 
 ## 🖥️ 本地运行与调试
 

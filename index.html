@@ -3,136 +3,144 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>个人主页 - jiashenhzju.github.io</title>
+  <title>Jiashen Hua(华佳燊)'s Homepage</title>
   <link rel="stylesheet" href="profile.css" />
 </head>
 <body>
   <div class="main-container">
-    <h1 class="page-title">个人主页</h1>
+    <h1 class="page-title"></h1>
 
-    <!-- 顶部：头像 + 姓名 + 联系方式 -->
+    <!-- 顶部：大标题 + 简介段落 + 开源/联系，右侧头像 -->
     <div class="top-section">
-      <div class="profile-left">
-        <img class="profile-pic" src="assets/avatar.jpg" alt="头像" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="profile-pic-placeholder" style="display:none;">👤</div>
-        <div>
-          <h2 class="name">你的名字</h2>
-          <p class="title">🎓 身份 / 职称（如：本科生 / 研究生 / 工程师）</p>
-          <p class="affiliation">学校或单位名称</p>
-          <p class="location">城市, 国家</p>
+      <div class="profile-info">
+        <h1 class="name">Jiashen Hua (华佳燊)</h1>
+        <div class="intro">
+          <p><a href="mailto:jiashenhzju@gmail.com">Email: jiashenhzju@gmail.com</a> / <a href="mailto:jiashen.hjs@alibaba-inc.com">jiashen.hjs@alibaba-inc.com</a></p>
+          <p>I am currently a Senior Algorithm Expert at Alibaba Cloud’s Apsara and Tongyi Labs. I obtained my M.S. and B.S. degrees from Zhejiang University in 2019 and 2016. There, I was a member of the Machine Vision and Navigation Lab led by <a href="https://person.zju.edu.cn/en/xiangzy" target="_blank" rel="noopener">Prof. Zhiyu Xiang (项志宇)</a>, advised by <a href="https://mypage.zju.edu.cn/en/gongxj" target="_blank" rel="noopener">Assoc. Prof. Xiaojin Gong (龚小谨)</a>.
+          <p>My current research focuses on <strong>multimodal large language models</strong>, especially <span class="text-highlight"><em>multimodal representation</em></span>, <span class="text-highlight"><em>multimodal reasoning</em></span>, and <span class="text-highlight"><em>agentic vision</em></span>. Prior to this, I contributed to the deployment of the City Brain Project across China, leveraging AI to enhance urban governance. I have published several papers in top-tier venues such as ICLR, CVPR, IJCAI, ACM MM, TCSVT, and TMM.</p>
+        <p>🔥 <em>I am always looking for self-motivated interns tailored to these topics. Feel free to reach out!</em></p>
         </div>
       </div>
-      <div class="contact-box">
-        <a href="mailto:your-email@example.com">✉️ your-email@example.com</a><br />
-        <a href="https://scholar.google.com/你的链接" target="_blank" rel="noopener">📚 Google Scholar</a>
-        <a href="https://github.com/jiashenhzju" target="_blank" rel="noopener">💻 GitHub</a>
+      <div class="profile-avatar">
+        <img class="profile-pic" src="assets/avatar.jpg" alt="头像" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="profile-pic-placeholder" style="display:none;">👤</div>
+        <div class="contact-links-below-avatar">
+          <p class="contact-line contact-line-below-avatar"><a href="https://github.com/jiashenhzju" target="_blank" rel="noopener">GitHub</a> / <a href="https://scholar.google.com/citations?user=M9R2tDYAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></p>
+          <p class="contact-line contact-line-below-avatar"><a href="#" id="wechat-qr-trigger" role="button">WeChat</a> / <a href="https://www.xiaohongshu.com/user/profile/68a1a089000000001901729c" target="_blank" rel="noopener">Xiaohongshu</a> / <a href="https://x.com/BuldajsZ" target="_blank" rel="noopener">Twitter</a></p>
+        </div>
       </div>
     </div>
 
-    <!-- News 打字机 -->
+    <!-- News：标题 + 带日期的项目符号列表 -->
     <div class="news-section">
-      <div class="section-title">News:</div>
-      <div class="news-typing-wrapper">
-        <span class="news-label">📢</span>
-        <span id="news-typing-text"></span>
-        <span class="typing-cursor"></span>
-      </div>
+      <h2 class="news-heading">News</h2>
+      <ul class="news-list">
+        <li>[2026/01] One papers accepted by <strong>ICLR 2026 <em><span style="color: red;">oral</span></em></strong>.</li>
+        <li>[2025/08] One papers accepted by <strong>TMM 2025</strong>.</li>
+        <li>[2024/10] One papers accepted by <strong>ACM MM 2024</strong>.</li>
+        <li>[2022/03] One papers accepted by <strong>CVPR 2022</strong>.</li>
+        <li>[2021/12] One papers accepted by <strong>CVPR 2021 RVSU Workshop</strong>.</li>
+        <li>[2019/04] Joined <strong>Alibaba Damo Academy</strong> as a Research Scientist.</li>
+      </ul>
     </div>
-
-    <!-- About Me -->
-    <h2>About Me</h2>
-    <p>
-      在这里写一段简短的自我介绍，包括你的教育背景、研究/工作方向、兴趣等。
-      可以多写几段，让访客快速了解你。
-    </p>
-    <p>
-      例如：我是某某大学某某专业的学生/教师，主要研究方向是……欢迎合作与交流！
-    </p>
-
-    <!-- Education -->
-    <h2>Education</h2>
-    <ul>
-      <li><strong>[年份–年份]</strong> 学位，专业，学校名称。</li>
-      <li><strong>[年份–年份]</strong> 学位，专业，学校名称。</li>
-    </ul>
 
     <!-- Selected Publications -->
     <h2>Selected Publications</h2>
+    <p class="pub-legend">(*Corresponding Author, †Project Lead)</p>
     <ul class="pub-list">
       <li class="publication-entry">
-        <img src="assets/paper1.jpg" alt="论文图" onerror="this.style.display='none'" />
-        <div>
-          <strong>🔥 论文标题</strong><br />
-          作者一, 作者二, 作者三.<br />
-          简短描述或摘要。<br />
-          期刊/会议 &nbsp; [<a href="#">Paper</a>]
+        <img src="assets/iclr26/iclr26_img.png" alt="论文图" onerror="this.style.display='none'" />
+        <div class="pub-body">
+          <div class="pub-title">Through the Lens of Contrast: Self-Improving Visual Reasoning in VLMs</div>
+          <div class="pub-authors">Zhiyu Pan, Yizheng Wu, <strong>Jiashen Hua*†</strong>, Junyi Feng, Shaotian Yan, Bing Deng, Zhiguo Cao and Jieping Ye.<br /><em>International Conference on Learning Representations (<strong>ICLR, <span style="color: red;">oral presentation</span></strong>)</em>, 2026</div>
+          <div class="pub-links"><a href="https://openreview.net/forum?id=ZymCPON45y">Paper</a> | <a href="https://github.com/zhiyupan42/VC-STaR" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </li>
+      <li class="publication-entry">
+        <img src="assets/cvpr22/cvpr22_img.png" alt="论文图" onerror="this.style.display='none'" />
+        <div class="pub-body">
+          <div class="pub-title">Online convolutional re-parameterization</div>
+          <div class="pub-authors">Mu Hu, Junyi Feng, <strong>Jiashen Hua†</strong>, Baisheng Lai, Jianqiang Huang, Xiaojin Gong and Xian-Sheng Hua.<br /><em>The IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>)</em>, 2022</div>
+          <div class="pub-links"><a href="https://openaccess.thecvf.com/content/CVPR2022/html/Hu_Online_Convolutional_Re-Parameterization_CVPR_2022_paper.html" target="_blank" rel="noopener">Paper</a> | <a href="https://github.com/JUGGHM/OREPA_CVPR2022" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </li>
+      <li class="publication-entry">
+        <img src="assets/ijcai18/ijcai18_img.png" alt="论文图" onerror="this.style.display='none'" />
+        <div class="pub-body">
+          <div class="pub-title">A normalized convolutional neural network for guided sparse depth upsampling</div>
+          <div class="pub-authors"><strong>Jiashen Hua</strong> and Xiaojing Gong.<br /><em>International Joint Conference on Artificial Intelligence (<strong>IJCAI</strong>)</em>, 2018</div>
+          <div class="pub-links"><a href="https://www.ijcai.org/Proceedings/2018/0316.pdf" target="_blank" rel="noopener">Paper</a></div>
         </div>
       </li>
     </ul>
 
-    <!-- Other Works -->
-    <h2>Other Works</h2>
+    <!-- Additional Publications -->
+    <h2>Additional Publications</h2>
     <ul>
-      <li>论文/项目标题. 作者. 会议/期刊. [<a href="#">Paper</a>]</li>
-      <li>论文/项目标题. 作者. 会议/期刊. [<a href="#">Paper</a>]</li>
+      <li>Enhancing Weakly Supervised Multimodal Video Anomaly Detection through Text Guidance. Shengyang Sun, Jiashen Hua, et al. IEEE Transactions on Multimedia (<strong>TMM</strong>), 2025. </li>
+      <li>TDSD: Text-Driven Scene-Decoupled Weakly Supervised Video Anomaly Detection. Shengyang Sun, Jiashen Hua, et al. ACM International Conference on Multimedia (<strong>ACM MM</strong>), 2024. </li>
+      <li>Delving into Instance Modeling for Weakly Supervised Video Anomaly Detection. Shengyang Sun, Jiashen Hua, et al. IEEE Transactions on Circuits and Systems for Video Technology (<strong>TCSVT</strong>), 2024. </li>
+      <li>RobTrack: A Robust Tracker Baseline towards Real-World Robustness in Multi-Object Tracking and Segmentation. Dongxu Wei, Jiashen Hua, et al. Computer Vision and Pattern Recognition Workshop (<strong>CVPRW</strong>), 2021.</li>
+      <!-- <li>A normalized convolutional neural network for guided sparse depth upsampling. Jiashen Hua and Xiaojing Gong. International Joint Conference on Artificial Intelligence (<strong>IJCAI</strong>), 2018.</li> -->
     </ul>
 
     <!-- Awards (可选) -->
-    <h2>Awards</h2>
+    <h2>Honors & Awards</h2>
     <ul>
-      <li>🏅 奖项或荣誉一</li>
-      <li>🏆 奖项或荣誉二</li>
+      <li>🏅 Future City Awards, <em>"Novel Perception and Simulation Platform Driven by Urban Digital Twins"</em>. 2023</li>
+      <li>🏆 Winner, CVPR 2021 <em>Robust Video Scene Understanding (RVSU) Challenge</em>. 2021</li>
+      <li>🏆 Winner, CVPR 2019 <em>The 1st Learning from Imperfect Data (LID) Challenge</em>. 2019</li>
+      <!-- <li>🏆 Top 6 Nationwide, "Overcoming Obstacles 2016" Unmanned Systems Challenge (Team "Qianjiang Tide", Zhejiang University). 2016</li> -->
     </ul>
+    
+    <!-- Pageviews Map (MapMyVisitors): 小缩略图，点击打开完整统计页 -->
+    <div id="pageviews-map-section">
+      <p class="pageviews-map-label">This webpage template is stolen from <a href="https://jonbarron.info/" target="_blank" rel="noopener">Jon Barron</a></p>
+      <a href="https://mapmyvisitors.com/web/1c2dk" title="Visit tracker" target="_blank" rel="noopener" class="pageviews-map-link">
+        <img src="https://mapmyvisitors.com/map.png?d=BiOjtKf7-oOSIYAqNaYj9CLxxms_huFM3W-UkjZJOxk&cl=ffffff" alt="Visit tracker" />
+      </a>
+    </div>
 
     <!-- Footer -->
     <div id="footer">
       <div id="footer-text">
-        © 2025 你的名字. 最后更新于 2025.
+        © 2026 Jiashen Hua. 最后更新于 2026年2月.
       </div>
     </div>
   </div>
 
+  <!-- 微信二维码弹窗 -->
+  <div id="wechat-qr-modal" class="wechat-qr-modal" aria-hidden="true">
+    <div class="wechat-qr-modal-overlay"></div>
+    <div class="wechat-qr-modal-content">
+      <button type="button" class="wechat-qr-modal-close" aria-label="关闭">×</button>
+      <img src="assets/wechat-qr.png" alt="WeChat QR Code" />
+      <p class="wechat-qr-modal-caption">扫码添加微信</p>
+    </div>
+  </div>
+
   <script>
-    // ====== News 打字机 ======
-    document.addEventListener('DOMContentLoaded', function () {
-      const typingElement = document.getElementById('news-typing-text');
-      if (!typingElement) return;
-
-      const newsMessages = [
-        "欢迎访问我的个人主页！",
-        "本页面可部署在 GitHub Pages。",
-        "请根据 README 修改内容与链接。"
-      ];
-
-      let msgIndex = 0;
-      let charIndex = 0;
-      const typingSpeed = 80;
-      const messagePause = 2000;
-      let deleting = false;
-
-      function typeLoop() {
-        const current = newsMessages[msgIndex];
-        if (!current) return;
-
-        if (!deleting) {
-          typingElement.textContent = current.slice(0, charIndex + 1);
-          charIndex++;
-          if (charIndex === current.length) {
-            setTimeout(function () { deleting = true; }, messagePause);
-          }
-        } else {
-          typingElement.textContent = current.slice(0, charIndex - 1);
-          charIndex--;
-          if (charIndex === 0) {
-            deleting = false;
-            msgIndex = (msgIndex + 1) % newsMessages.length;
-          }
-        }
-        const delay = deleting ? 40 : typingSpeed;
-        setTimeout(typeLoop, delay);
+    (function () {
+      var trigger = document.getElementById('wechat-qr-trigger');
+      var modal = document.getElementById('wechat-qr-modal');
+      var overlay = modal && modal.querySelector('.wechat-qr-modal-overlay');
+      var closeBtn = modal && modal.querySelector('.wechat-qr-modal-close');
+      if (!trigger || !modal) return;
+      function openModal() {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
       }
-      typeLoop();
-    });
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal();
+      });
+      if (overlay) overlay.addEventListener('click', closeModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    })();
   </script>
 </body>
 </html>
