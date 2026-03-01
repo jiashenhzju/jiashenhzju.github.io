@@ -430,6 +430,10 @@ a:hover {
   text-decoration: underline;
 }
 
+.pub-links .pub-meta {
+  font-size: 0.85em;
+}
+
 /* ========== 页脚 ========== */
 #footer {
   margin-top: 3rem;
