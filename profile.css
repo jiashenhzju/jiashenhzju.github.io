@@ -50,15 +50,14 @@
 html {
   background-color: #ffffff;
   min-height: 100%;
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: "Microsoft YaHei", "微软雅黑", Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: "Microsoft YaHei", "微软雅黑", Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222;
-  margin: 50px auto;
-  padding: 0 80px 60px;
-  max-width: 900px;
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
   min-height: 100dvh;
   background-color: #ffffff;
@@ -70,7 +69,12 @@ body {
 /* 整页统一使用 Lato，避免被其他字体或继承覆盖 */
 .main-container {
   width: 100%;
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  max-width: 980px;
+  margin: 0 auto;
+  /* 预留顶部固定 header 的高度（通过 padding-top 让内容不被遮挡） */
+  padding: 30px 80px 60px;
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei", "微软雅黑", Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .main-container * {
   font-family: inherit;
@@ -82,6 +86,99 @@ body {
   margin-bottom: 0.5em;
   border: none;
   padding: 0;
+}
+
+/* ========== 顶部粘性导航（品牌名 + about / publications） ========== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+  backdrop-filter: saturate(160%) blur(10px);
+  border-bottom: 1px solid #eee;
+}
+
+.site-header-inner {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0.85rem 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+/* publications 页：内容更宽，header 同步加宽 */
+.page-publications .main-container,
+.page-publications .site-header-inner {
+  max-width: 950px;
+}
+
+.site-brand {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #222;
+  text-decoration: none;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+}
+
+.site-brand:hover {
+  color: #2244aa;
+  text-decoration: none;
+}
+
+.site-nav {
+  margin: 0 0 0 auto;
+  padding: 0;
+}
+
+.site-nav-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.site-nav-item {
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav-link {
+  display: inline-block;
+  padding: 0.15rem 0;
+  color: #555;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.site-nav-link:hover {
+  color: #2244aa;
+  text-decoration: none;
+  border-bottom-color: rgba(34, 68, 170, 0.35);
+}
+
+.site-nav-link.is-active {
+  color: #2244aa;
+  font-weight: 700;
+  border-bottom-color: #2244aa;
+}
+
+/* 给主内容区预留固定 header 高度，避免首屏被遮挡 */
+.main-container {
+  padding-top: 82px;
 }
 
 /* ========== 顶部区域：左侧信息 + 右侧头像（纵向与文字对齐） ========== */
@@ -150,10 +247,10 @@ body {
 
 /* 大标题：姓名 */
 .name {
-  margin: 0 0 0.25em 0;
+  margin: 0 0 0.4em 0;
   padding-bottom: 0;
   border-bottom: none;
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: "Microsoft YaHei", "微软雅黑", Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 2rem;
   font-weight: bold;
   color: #222;
@@ -162,14 +259,14 @@ body {
 
 /* 简介段落 */
 .intro {
-  margin: 0 0 0.5em 0;
+  margin: 0 0 0.3em 0;
 }
 
 .intro p {
-  margin: 0 0 0.7em 0;
+  margin: 0 0 0.45em 0;
   font-size: 16px;
   font-weight: normal;
-  line-height: 1.6;
+  line-height: 1.45;
   color: #222;
 }
 
@@ -178,7 +275,7 @@ body {
 }
 
 .intro p.intro-email {
-  margin-bottom: 0.55em;
+  margin-bottom: 0.8em;
   font-size: 1.04rem;
 }
 
@@ -190,7 +287,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 0.55em;
+  margin-bottom: 0.35em;
   font-size: 1.3rem;
   font-weight: 400;
   line-height: 1;
@@ -243,7 +340,7 @@ body {
 /* 开源项目 */
 .opensource-heading {
   margin: 0.65em 0 0.3em 0;
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: "Microsoft YaHei", "微软雅黑", Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -385,7 +482,7 @@ body {
 
 /* ========== 标题（模板风格：无下划线、加粗） ========== */
 h1, h2 {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: "Microsoft YaHei", "微软雅黑", Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   color: #222;
   border-bottom: none;
@@ -572,8 +669,25 @@ a:hover {
 
 /* ========== 移动端 ========== */
 @media (max-width: 768px) {
-  body {
-    padding: 28px 24px 36px;
+  .site-header-inner {
+    padding: 0.65rem 24px;
+    gap: 0.6rem;
+  }
+
+  .site-brand {
+    font-size: 0.95rem;
+  }
+
+  .site-nav-list {
+    gap: 1rem;
+  }
+
+  .site-nav-link {
+    font-size: 0.95rem;
+  }
+
+  .main-container {
+    padding: 72px 24px 36px;
   }
 
   .top-section {
@@ -680,4 +794,153 @@ a:hover {
   margin: 0.75rem 0 0 0;
   font-size: 0.9rem;
   color: #666;
+}
+
+/* ========== Publications 页面（参考 lubinfan.github.io/publications.html） ========== */
+.pubs-intro {
+  margin: 0 0 2.2rem 0;
+  padding: 0;
+  font-family: "Microsoft YaHei", "微软雅黑", Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #444444;
+  line-height: 1.6;
+}
+
+.pubs-intro a {
+  color: #005596;
+  text-decoration: none;
+}
+
+.pubs-intro a:hover {
+  text-decoration: underline;
+}
+
+.pubs-group {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  column-gap: 24px;
+  row-gap: 0;
+  margin: 0 0 2.4rem 0;
+  font-family: "Microsoft YaHei", "微软雅黑", Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.pubs-group-label {
+  padding-top: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #444444;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.pubs-group-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  min-width: 0;
+}
+
+.pub-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.pub-item .pub-thumb {
+  width: 224px;
+  height: 120px;
+  flex-shrink: 0;
+  object-fit: cover;
+  background: #f5f5f5;
+  border: 1px solid #ececec;
+  display: block;
+  border-radius: 0;
+}
+
+.pub-item .pub-thumb-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a0a0a0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: #f6f6f6;
+  text-align: center;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+.pub-item .pub-thumb.pub-thumb-missing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a0a0a0;
+  font-size: 13px;
+  background: #f6f6f6;
+}
+
+.pub-item .pub-meta {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.pub-item .pub-title {
+  display: block;
+  margin: 0;
+  color: #444444;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.pub-item .pub-details {
+  display: block;
+  margin-top: 0.35em;
+  color: gray; /* Lubin 原样：#808080 */
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.pub-item .pub-me {
+  color: #111111;
+  font-weight: 600;
+}
+
+.pub-item .pub-note {
+  color: #c00000;
+  margin-left: 0.2em;
+}
+
+.pub-item .pub-details a,
+.pub-item .pub-meta a {
+  color: #005596;
+  text-decoration: none;
+}
+
+.pub-item .pub-details a:hover,
+.pub-item .pub-meta a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .pubs-group {
+    grid-template-columns: 56px minmax(0, 1fr);
+    column-gap: 14px;
+  }
+  .pubs-group-label {
+    font-size: 14px;
+  }
+  .pub-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .pub-item .pub-thumb {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 224 / 120;
+  }
 }

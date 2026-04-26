@@ -9,9 +9,18 @@
   <link rel="stylesheet" href="profile.css" />
 </head>
 <body>
-  <div class="main-container">
-    <h1 class="page-title"></h1>
+  <header class="site-header" role="banner">
+    <div class="site-header-inner">
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav-list">
+          <li class="site-nav-item"><a class="site-nav-link is-active" href="index.html" aria-current="page">about</a></li>
+          <li class="site-nav-item"><a class="site-nav-link" href="publications.html">publications</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <div class="main-container">
     <!-- 顶部：大标题 + 简介段落 + 开源/联系，右侧头像 -->
     <div class="top-section">
       <div class="profile-info">
@@ -88,16 +97,6 @@
           <div class="pub-links"><a href="https://www.ijcai.org/Proceedings/2018/0316.pdf" target="_blank" rel="noopener">Paper</a> <span class="pub-meta">(58 citations)</span></div>
         </div>
       </li>
-    </ul>
-
-    <!-- Additional Publications -->
-    <h2>Additional Publications</h2>
-    <ul>
-      <li>Enhancing Weakly Supervised Multimodal Video Anomaly Detection through Text Guidance. Shengyang Sun, Jiashen Hua, et al. IEEE Transactions on Multimedia (<strong>TMM</strong>), 2025. </li>
-      <li>TDSD: Text-Driven Scene-Decoupled Weakly Supervised Video Anomaly Detection. Shengyang Sun, Jiashen Hua, et al. ACM International Conference on Multimedia (<strong>ACM MM</strong>), 2024. </li>
-      <li>Delving into Instance Modeling for Weakly Supervised Video Anomaly Detection. Shengyang Sun, Jiashen Hua, et al. IEEE Transactions on Circuits and Systems for Video Technology (<strong>TCSVT</strong>), 2024. </li>
-      <li>RobTrack: A Robust Tracker Baseline towards Real-World Robustness in Multi-Object Tracking and Segmentation. Dongxu Wei, Jiashen Hua, et al. Computer Vision and Pattern Recognition Workshop (<strong>CVPRW</strong>), 2021.</li>
-      <!-- <li>A normalized convolutional neural network for guided sparse depth upsampling. Jiashen Hua and Xiaojing Gong. International Joint Conference on Artificial Intelligence (<strong>IJCAI</strong>), 2018.</li> -->
     </ul>
 
     <!-- Awards (可选) -->
