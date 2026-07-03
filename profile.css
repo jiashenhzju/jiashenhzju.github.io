@@ -793,6 +793,20 @@ a:hover {
   margin: 0 auto;
 }
 
+.pageviews-map-link {
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 6px rgba(20, 24, 34, 0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.pageviews-map-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(20, 24, 34, 0.12);
+}
+
 .visitor-map img,
 .visitor-map canvas {
   display: block;
