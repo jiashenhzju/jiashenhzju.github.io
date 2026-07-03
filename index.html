@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPZ7QSH48B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JPZ7QSH48B');
+  </script>
+
   <title>Jiashen Hua (华佳燊) — Homepage</title>
   <meta name="description" content="Jiashen Hua (华佳燊): Senior Algorithm Expert at Alibaba Cloud (Tongyi Lab). Research on multimodal large language models, representation, reasoning and agentic vision. M.S. &amp; B.S. from Zhejiang University. Publications at ICLR, CVPR, IJCAI, ACM MM." />
   <meta name="keywords" content="Jiashen Hua, 华佳燊, multimodal large language models, MLLM, multimodal representation, multimodal reasoning, agentic vision, Alibaba Cloud, Tongyi Lab, Zhejiang University, ICLR, CVPR, IJCAI, ACM MM" />
@@ -195,14 +205,142 @@
       <!-- <li>🏆 Top 6 Nationwide, "Overcoming Obstacles 2016" Unmanned Systems Challenge (Team "Qianjiang Tide", Zhejiang University). 2016</li> -->
     </ul>
     
-    <!-- Pageviews Map (MapMyVisitors): 完整平面世界地图挂件（红点 + 访客计数） -->
+    <!-- Pageviews Map (ECharts + Google Analytics): 世界访客地图 -->
     <div id="pageviews-map-section">
-      <div class="visitor-map">
-        <a href="https://mapmyvisitors.com/web/1c2dk" title="Visit tracker" target="_blank" rel="noopener" class="pageviews-map-link">
-          <img src="https://mapmyvisitors.com/map.png?d=BiOjtKf7-oOSIYAqNaYj9CLxxms_huFM3W-UkjZJOxk&cl=ffffff" alt="访客足迹地图 / Visit tracker" loading="lazy" />
-        </a>
+      <div class="visitor-stat-with-map">
+        <div id="ga-world-map-mini" class="visitor-map-mini"></div>
+        <div class="visitor-stat-inline">
+          <span class="visitor-count-box" id="ga-visitor-count">--</span>
+          <span class="visitor-label">visitors since July 2026</span>
+        </div>
       </div>
-      <p class="pageviews-map-label">This webpage template is stolen from <a href="https://jonbarron.info/" target="_blank" rel="noopener">Jon Barron</a></p>
+    </div>
+
+    <!-- 访客地图脚本：ECharts 世界地图 + 由 GitHub Action 从 Google Analytics 更新的本地 JSON -->
+    <div style="display:none;">
+      <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          loadAnalyticsData();
+        });
+
+        function loadAnalyticsData() {
+          fetch('/assets/json/analytics.json?t=' + new Date().getTime())
+            .then(function (response) { return response.json(); })
+            .then(function (data) {
+              var count = data.totalPageViews || data.totalVisitors || 0;
+              if (count > 0) {
+                document.getElementById('ga-visitor-count').textContent = count.toLocaleString();
+                if (data.geoData && data.geoData.length > 0) {
+                  initWorldMap(data.geoData);
+                }
+              }
+            })
+            .catch(function (err) {
+              console.log('Analytics data not available yet:', err);
+            });
+        }
+
+        function initWorldMap(geoData) {
+          var mapContainer = document.getElementById('ga-world-map-mini') || document.getElementById('ga-world-map');
+          if (!mapContainer || typeof echarts === 'undefined') {
+            return;
+          }
+
+          var chart = echarts.init(mapContainer);
+
+          var visitData = geoData.map(function (item) {
+            return { name: item.country, value: item.visitors };
+          });
+
+          var scatterData = [];
+          geoData.forEach(function (item) {
+            var coords = getCountryCoords(item.country);
+            if (coords) {
+              scatterData.push({ name: item.country, value: coords.concat(item.visitors) });
+            }
+          });
+
+          var option = {
+            tooltip: {
+              trigger: 'item',
+              formatter: function (params) {
+                if (params.seriesType === 'effectScatter') {
+                  return params.name + ': ' + params.value[2] + ' visitors';
+                }
+                return params.name + ': ' + (params.value || 0) + ' visitors';
+              }
+            },
+            geo: {
+              map: 'world',
+              roam: false,
+              silent: true,
+              itemStyle: { areaColor: 'transparent', borderColor: 'transparent' },
+              emphasis: { disabled: true }
+            },
+            series: [
+              {
+                name: 'Visitors',
+                type: 'map',
+                map: 'world',
+                roam: false,
+                emphasis: {
+                  label: { show: true, color: '#333' },
+                  itemStyle: { areaColor: '#ffd700' }
+                },
+                itemStyle: { borderColor: '#fff', borderWidth: 0.5, areaColor: '#e0f3f8' },
+                data: visitData
+              },
+              {
+                name: 'Cities',
+                type: 'effectScatter',
+                coordinateSystem: 'geo',
+                symbolSize: function (val) { return Math.max(10, Math.min(25, val[2] / 1.5)); },
+                showEffectOn: 'render',
+                rippleEffect: { brushType: 'stroke', scale: 3 },
+                itemStyle: {
+                  color: '#ff6b6b',
+                  borderColor: '#fff',
+                  borderWidth: 2,
+                  shadowBlur: 10,
+                  shadowColor: 'rgba(255, 107, 107, 0.5)'
+                },
+                emphasis: { scale: 1.5, itemStyle: { color: '#ffd700' } },
+                data: scatterData
+              }
+            ]
+          };
+
+          chart.setOption(option);
+          window.addEventListener('resize', function () { chart.resize(); });
+        }
+
+        function getCountryCoords(country) {
+          var coords = {
+            'Singapore': [103.8198, 1.3521],
+            'Hong Kong': [114.1694, 22.3193],
+            'China': [104.1954, 35.8617],
+            'United States': [-95.7129, 37.0902],
+            'United Kingdom': [-3.4360, 55.3781],
+            'Japan': [138.2529, 36.2048],
+            'Germany': [10.4515, 51.1657],
+            'France': [2.2137, 46.2276],
+            'Australia': [133.7751, -25.2744],
+            'Canada': [-106.3468, 56.1304],
+            'India': [78.9629, 20.5937],
+            'South Korea': [127.7669, 35.9078],
+            'Netherlands': [5.2913, 52.1326],
+            'Switzerland': [8.2275, 46.8182],
+            'Sweden': [18.6435, 60.1282],
+            'Italy': [12.5674, 41.8719],
+            'Spain': [-3.7492, 40.4637],
+            'Brazil': [-51.9253, -14.2350],
+            'Russia': [105.3188, 61.5240]
+          };
+          return coords[country] || null;
+        }
+      </script>
     </div>
 
     <!-- Footer -->

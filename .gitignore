@@ -11,6 +11,9 @@ Desktop.ini
 # Node (本地开发)
 node_modules/
 
+# Local preview screenshots
+.preview_*.png
+
 # Editor
 *.swp
 *.swo

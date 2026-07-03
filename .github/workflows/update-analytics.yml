@@ -1,0 +1,47 @@
+name: Update visitor analytics
+
+# 默认仅支持手动触发；配置好 GA Secret 后，取消下面 schedule 的注释即可每日自动更新。
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *"   # 每天 UTC 02:00 运行一次
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-analytics
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Fetch GA data
+        env:
+          GA_PROPERTY_ID: ${{ secrets.GA_PROPERTY_ID }}
+          GA_CREDENTIALS_JSON: ${{ secrets.GA_CREDENTIALS_JSON }}
+        run: python scripts/fetch_ga_analytics.py
+
+      - name: Commit updated analytics.json
+        run: |
+          if [[ -n "$(git status --porcelain assets/json/analytics.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add assets/json/analytics.json
+            git commit -m "chore: update visitor analytics data"
+            git push
+          else
+            echo "analytics.json 无变化，跳过提交。"
+          fi

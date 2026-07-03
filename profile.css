@@ -330,8 +330,8 @@ body {
 }
 
 .tongyi-lab-icon {
-  width: 1.5em;
-  height: 1.5em;
+  width: 2.0em;
+  height: 2.0em;
   object-fit: contain;
   vertical-align: middle;
 }
@@ -787,32 +787,45 @@ a:hover {
   letter-spacing: 0.02em;
 }
 
-/* 完整访客地图挂件容器 */
-.visitor-map {
-  max-width: 520px;
+/* ECharts 世界访客地图（数据由 Google Analytics 经 GitHub Action 更新） */
+.visitor-stat-with-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
   margin: 0 auto;
 }
 
-.pageviews-map-link {
-  display: block;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  box-shadow: 0 1px 6px rgba(20, 24, 34, 0.06);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.pageviews-map-link:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(20, 24, 34, 0.12);
-}
-
-.visitor-map img,
-.visitor-map canvas {
-  display: block;
+.visitor-map-mini {
+  width: 340px;
+  height: 170px;
   max-width: 100%;
-  height: auto;
-  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.visitor-stat-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.visitor-count-box {
+  display: inline-block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", monospace;
+  letter-spacing: -0.02em;
+}
+
+.visitor-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
 }
 
 /* 页脚与地图区间隔 */
