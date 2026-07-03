@@ -67,6 +67,11 @@ def main() -> int:
 
     geo_data.sort(key=lambda x: x["visitors"], reverse=True)
 
+    # 保护：GA 尚无数据时不要用空结果覆盖现有（占位）数据，避免地图变空白。
+    if total_page_views == 0 or not geo_data:
+        print("GA 暂无有效数据，保留现有 analytics.json（不覆盖）。")
+        return 0
+
     payload = {
         "totalPageViews": total_page_views,
         "totalVisitors": total_visitors,
