@@ -1127,6 +1127,18 @@ a:hover {
   flex-shrink: 0;
 }
 
+/* 位图图标（如 ModelScope）：避开条目缩略图的 img 尺寸规则 */
+.pub-links a img.link-icon {
+  width: 15px;
+  min-width: 0;
+  height: 15px;
+  max-height: none;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 3px;
+  object-fit: contain;
+}
+
 /* HF 表情图标的字号微调，让它与 GitHub SVG 视觉等大 */
 .link-emoji {
   font-size: 0.95em;
