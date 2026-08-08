@@ -1,20 +1,31 @@
 {
-  "totalPageViews": 128,
-  "totalVisitors": 96,
-  "lastUpdated": "2026-07-04",
-  "note": "占位种子数据，接入 Google Analytics 后由 GitHub Action 自动覆盖（见 .github/workflows/update-analytics.yml）",
+  "totalPageViews": 457,
+  "totalVisitors": 58,
+  "lastUpdated": "2026-08-08",
   "geoData": [
-    { "country": "China", "visitors": 41 },
-    { "country": "United States", "visitors": 18 },
-    { "country": "Hong Kong", "visitors": 9 },
-    { "country": "Singapore", "visitors": 7 },
-    { "country": "Japan", "visitors": 5 },
-    { "country": "United Kingdom", "visitors": 4 },
-    { "country": "Germany", "visitors": 3 },
-    { "country": "Canada", "visitors": 3 },
-    { "country": "South Korea", "visitors": 2 },
-    { "country": "Australia", "visitors": 2 },
-    { "country": "France", "visitors": 1 },
-    { "country": "India", "visitors": 1 }
+    {
+      "country": "China",
+      "visitors": 21
+    },
+    {
+      "country": "Singapore",
+      "visitors": 15
+    },
+    {
+      "country": "United States",
+      "visitors": 13
+    },
+    {
+      "country": "Taiwan",
+      "visitors": 6
+    },
+    {
+      "country": "Japan",
+      "visitors": 2
+    },
+    {
+      "country": "Moldova",
+      "visitors": 1
+    }
   ]
 }
