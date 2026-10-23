@@ -1,19 +1,19 @@
 {
-  "totalPageViews": 1114,
-  "totalVisitors": 148,
-  "lastUpdated": "2026-10-22",
+  "totalPageViews": 1124,
+  "totalVisitors": 152,
+  "lastUpdated": "2026-10-23",
   "geoData": [
+    {
+      "country": "United States",
+      "visitors": 49
+    },
     {
       "country": "China",
       "visitors": 49
     },
     {
-      "country": "United States",
-      "visitors": 48
-    },
-    {
       "country": "Singapore",
-      "visitors": 30
+      "visitors": 33
     },
     {
       "country": "Taiwan",
