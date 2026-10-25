@@ -1,11 +1,11 @@
 {
-  "totalPageViews": 1131,
-  "totalVisitors": 152,
-  "lastUpdated": "2026-10-24",
+  "totalPageViews": 1140,
+  "totalVisitors": 156,
+  "lastUpdated": "2026-10-25",
   "geoData": [
     {
       "country": "United States",
-      "visitors": 49
+      "visitors": 52
     },
     {
       "country": "China",
@@ -24,12 +24,12 @@
       "visitors": 4
     },
     {
-      "country": "Germany",
+      "country": "Japan",
       "visitors": 4
     },
     {
-      "country": "Japan",
-      "visitors": 3
+      "country": "Germany",
+      "visitors": 4
     },
     {
       "country": "Moldova",
