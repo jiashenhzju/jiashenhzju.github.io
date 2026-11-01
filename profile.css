@@ -49,15 +49,15 @@
 /* ========== 设计令牌 / 配色体系 ========== */
 :root {
   /* 主题强调色：学术、克制的靛蓝 */
-  --accent: #3f51d4;
-  --accent-strong: #2c3aa8;
-  --accent-weak: rgba(63, 81, 212, 0.10);
-  --accent-weaker: rgba(63, 81, 212, 0.06);
+  --accent: #3c54ad;
+  --accent-strong: #30458b;
+  --accent-weak: rgba(60, 84, 173, 0.07);
+  --accent-weaker: rgba(60, 84, 173, 0.035);
 
   /* 文字 */
   --ink: #1f2430;
   --ink-2: #4b5563;
-  --muted: #8b93a3;
+  --muted: #737d8b;
 
   /* 表面与分割线 */
   --bg: #ffffff;
@@ -136,7 +136,7 @@ body {
 }
 
 .site-header-inner {
-  max-width: 950px;
+  max-width: 980px;
   margin: 0 auto;
   padding: 0.85rem 80px;
   display: flex;
@@ -146,7 +146,7 @@ body {
   box-sizing: border-box;
 }
 
-/* publications 页：内容更宽，header 同步加宽 */
+/* publications 页：内容与 header 保持同一宽度 */
 .page-publications .main-container,
 .page-publications .site-header-inner {
   max-width: 950px;
@@ -221,7 +221,7 @@ body {
   justify-content: space-between;
   align-items: center; /* 纵向上照片与文字块居中对齐 */
   flex-wrap: wrap;
-    gap: 2.5rem;
+  gap: 2.25rem;
   margin-bottom: 0.5rem;
 }
 
@@ -254,7 +254,7 @@ body {
 }
 
 .contact-links-below-avatar {
-  margin-top: 1.25rem;
+  margin-top: 0.85rem;
   text-align: center;
 }
 
@@ -292,17 +292,23 @@ body {
   letter-spacing: -0.005em;
 }
 
+.name-cn {
+  font-size: 0.84em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
 /* 简介段落 */
 .intro {
   margin: 0 0 0.3em 0;
 }
 
 .intro p {
-  margin: 0 0 0.45em 0;
+  margin: 0 0 0.65em 0;
   font-size: 16px;
   font-weight: normal;
-  line-height: 1.45;
-  color: #222;
+  line-height: 1.55;
+  color: var(--ink);
 }
 
 .intro p:last-child {
@@ -311,27 +317,28 @@ body {
 
 .intro p.intro-email {
   margin-bottom: 0.8em;
-  font-size: 1.04rem;
+  font-size: 0.9375rem;
 }
 
 .intro-email-label {
   color: var(--muted);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .intro p.intro-role {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 0.35em;
-  font-size: 1.3rem;
+  gap: 0.65rem;
+  margin-bottom: 0.6em;
+  font-size: 1.125rem;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.4;
 }
 
 .tongyi-lab-icon {
-  width: 2.0em;
-  height: 2.0em;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
   object-fit: contain;
   vertical-align: middle;
 }
@@ -355,11 +362,11 @@ body {
 .top-recruiting-line {
   margin: 0.6em 0 0.4em 0;
   padding: 0.6em 0.9em;
-  background: var(--accent-weak);
-  border-left: 3px solid var(--accent);
-  border-radius: 8px;
-  color: var(--ink);
-  font-size: 0.98rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink-2);
+  font-size: 0.9375rem;
   line-height: 1.5;
   white-space: normal;
 }
@@ -422,7 +429,7 @@ body {
   margin: 0.45em 0 0 0;
   font-size: 0.9375rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
   color: #333;
 }
 
@@ -435,22 +442,16 @@ body {
   text-decoration: underline;
 }
 
-/* 头像外框：负责圆角、边框、阴影、悬停与暗角遮罩 */
+/* 头像：保留轻边框与自然裁切 */
 .profile-pic-frame {
   position: relative;
   display: inline-block;
   width: 220px;
   height: 220px;
-  border-radius: 16px;
+  border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--line);
-  box-shadow: 0 10px 30px rgba(31, 36, 48, 0.14);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.profile-pic-frame:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 40px rgba(63, 81, 212, 0.18);
+  box-shadow: 0 3px 12px rgba(31, 36, 48, 0.06);
 }
 
 /* 极轻暗角：只在四角淡淡收一下，保留通透蓝天 */
@@ -495,7 +496,7 @@ body {
 .news-heading {
   margin: 0 0 0.6em 0;
   border-bottom: none;
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: 700;
   color: var(--ink);
 }
@@ -504,20 +505,21 @@ body {
   margin: 0;
   padding: 0 0.5em 0 0;
   font-size: 15px;
-  line-height: 1.4;
+  line-height: 1.5;
   color: var(--ink);
-  max-height: 9.5em;
+  /* Five single-line updates fit without a clipped row on desktop. */
+  max-height: calc(7.5em + 55px);
   overflow-y: auto;
   scrollbar-gutter: stable;
 }
 
-/* 每条 News：左侧日期胶囊 + 右侧内容，行间细分割线 */
+/* 每条 News：日期与正文按列对齐 */
 .news-item {
   display: grid;
-  grid-template-columns: 84px minmax(0, 1fr);
+  grid-template-columns: 72px minmax(0, 1fr);
   align-items: start;
   column-gap: 14px;
-  padding: 0.32em 0;
+  padding: 5px 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -529,9 +531,9 @@ body {
   display: inline-block;
   padding: 0.1em 0;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0.01em;
-  color: var(--accent-strong);
+  color: var(--muted);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
@@ -546,7 +548,7 @@ body {
 }
 
 .news-list::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 .news-list::-webkit-scrollbar-thumb {
@@ -572,7 +574,7 @@ body {
   font-weight: 700;
 }
 
-/* ========== 标题：衬线 + 左侧强调色竖条 ========== */
+/* ========== 标题：用字重与留白建立层级 ========== */
 h1, h2 {
   font-family: var(--font-serif);
   font-weight: 700;
@@ -587,20 +589,11 @@ h1, h2 {
 }
 
 h2 {
-  font-size: 1.5rem;
-  padding-left: 0.7rem;
-}
-
-/* 章节标题左侧的强调色竖条 */
-h2::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.18em;
-  bottom: 0.28em;
-  width: 4px;
-  border-radius: 3px;
-  background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+  font-size: 1.375rem;
+  line-height: 1.35;
+  margin-top: 2rem;
+  margin-bottom: 0.65em;
+  padding: 0;
 }
 
 /* ========== 段落与列表 ========== */
@@ -640,7 +633,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ========== 出版物条目（卡片化，悬停轻微提升） ========== */
+/* ========== 研究条目：轻边框，优先突出标题和图示 ========== */
 .publication-entry {
   display: flex;
   align-items: flex-start;
@@ -649,15 +642,12 @@ a:hover {
   padding: 1rem 1.1rem;
   background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow: 0 1px 2px rgba(31, 36, 48, 0.03);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border-radius: 8px;
+  transition: border-color 0.15s ease;
 }
 
 .publication-entry:hover {
-  transform: translateY(-2px);
   border-color: var(--line-strong);
-  box-shadow: 0 12px 28px rgba(31, 36, 48, 0.08);
 }
 
 .publication-entry img {
@@ -665,8 +655,8 @@ a:hover {
   min-width: 120px;
   height: auto;
   aspect-ratio: 220 / 125;
-  border-radius: 10px;
-  object-fit: fill; /* 按框的宽高填满，不留白 */
+  border-radius: 5px;
+  object-fit: contain; /* Preserve the proportions of research figures. */
   flex-shrink: 0;
   border: 1px solid var(--line);
 }
@@ -704,25 +694,26 @@ a:hover {
   margin: 0.15em 0 0 0;
 }
 
-/* 链接做成轻量 chip（浅边框圆角，悬停填充主题色） */
+/* 资料链接：弱化按钮感，统一轻边框与悬停底色 */
 .pub-links a {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 3px 11px;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
   color: var(--accent);
   background: var(--bg);
+  font-size: 13px;
   line-height: 1.45;
   text-decoration: none;
   transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
 }
 
 .pub-links a:hover {
-  color: #fff;
-  background: var(--accent);
-  border-color: var(--accent);
+  color: var(--accent-strong);
+  background: var(--accent-weaker);
+  border-color: var(--line-strong);
   text-decoration: none;
 }
 
@@ -743,7 +734,73 @@ a:hover {
 }
 
 .pub-links a:hover .pub-meta {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--ink-2);
+}
+
+/* ========== 经历：按时间倒序的简洁列表 ========== */
+.experience-timeline {
+  list-style: none;
+  margin: 0.4em 0 0.6em;
+  padding: 0;
+}
+
+.experience-timeline > li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: 24px;
+  margin: 0 0 8px;
+}
+
+.experience-date {
+  color: var(--ink-2);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.experience-detail {
+  line-height: 1.6;
+}
+
+.experience-detail strong {
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.experience-detail > span {
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.experience-detail > span::before {
+  content: " · ";
+}
+
+.experience-detail .affiliation-cn {
+  font-size: 0.9em;
+  font-weight: 400;
+  color: var(--ink-2);
+}
+
+@media (max-width: 480px) {
+  .experience-timeline > li {
+    column-gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .experience-detail > span {
+    display: block;
+  }
+
+  .experience-detail > span::before {
+    content: none;
+  }
+
+  .experience-detail .affiliation-cn {
+    display: block;
+  }
 }
 
 /* ========== 页脚 ========== */
@@ -859,6 +916,7 @@ a:hover {
 
   .top-section {
     flex-direction: column;
+    gap: 1.5rem;
   }
 
   .profile-info {
@@ -867,8 +925,14 @@ a:hover {
   }
 
   .intro p.intro-role {
-    font-size: 1.15rem;
-    line-height: 1;
+    gap: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .tongyi-lab-icon {
+    width: 30px;
+    height: 30px;
   }
 
   .top-recruiting-line {
@@ -898,36 +962,22 @@ a:hover {
 }
 
 /* ========== 微信二维码弹窗 ========== */
+/* Native dialog with the original popup appearance. */
 .wechat-qr-modal {
-  display: none;
   position: fixed;
-  inset: 0;
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  box-sizing: border-box;
-}
-
-.wechat-qr-modal.is-open {
-  display: flex;
-}
-
-.wechat-qr-modal-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
-
-.wechat-qr-modal-content {
-  position: relative;
-  background: #fff;
+  margin: auto;
+  border: 0;
   border-radius: 12px;
   padding: 1.5rem;
+  max-width: calc(100vw - 2rem);
+  box-sizing: border-box;
+  background: #fff;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   text-align: center;
-  max-width: 90vw;
+}
+
+.wechat-qr-modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .wechat-qr-modal-close {
@@ -949,7 +999,7 @@ a:hover {
   color: #111;
 }
 
-.wechat-qr-modal-content img {
+.wechat-qr-modal img {
   display: block;
   width: 220px;
   height: 220px;
@@ -968,7 +1018,7 @@ a:hover {
   padding: 0.9rem 1.1rem;
   background: var(--bg-soft);
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 6px;
   font-family: var(--font-sans);
   font-size: 15px;
   color: var(--ink-2);
@@ -1027,11 +1077,11 @@ a:hover {
   width: 224px;
   height: 120px;
   flex-shrink: 0;
-  object-fit: cover;
-  background: var(--bg-soft);
+  object-fit: contain;
+  background: var(--bg);
   border: 1px solid var(--line);
   display: block;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .pub-item .pub-thumb-placeholder {
@@ -1096,10 +1146,10 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 2px 10px;
+  padding: 3px 9px;
   margin: 7px 6px 0 0;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
   color: var(--accent);
   background: var(--bg);
   font-size: 13px;
@@ -1110,9 +1160,9 @@ a:hover {
 }
 
 .pub-item .pub-details a:hover {
-  color: #fff;
-  background: var(--accent);
-  border-color: var(--accent);
+  color: var(--accent-strong);
+  background: var(--accent-weaker);
+  border-color: var(--line-strong);
   text-decoration: none;
 }
 
@@ -1188,5 +1238,82 @@ a:hover {
     width: 100%;
     height: auto;
     aspect-ratio: 224 / 120;
+  }
+}
+
+/* On phones, the year sits above its papers to preserve reading width. */
+@media (max-width: 480px) {
+  .pubs-group {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.75rem;
+  }
+
+  .pubs-group-label {
+    padding-top: 0;
+    text-align: left;
+  }
+
+  .pub-item {
+    padding: 0;
+  }
+}
+
+/* Keyboard access without changing the committed page layout. */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 1100;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  border: 1px solid var(--accent);
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+#wechat-qr-trigger {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+#wechat-qr-trigger:hover {
+  text-decoration: underline;
+}
+
+/* Keep the fixed publications header clear of the content on narrow phones. */
+@media (max-width: 340px) {
+  .intro p.intro-role {
+    gap: 0.375rem;
+    font-size: 0.9375rem;
+  }
+
+  .tongyi-lab-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .page-publications .site-header-inner {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .page-publications .site-nav {
+    width: 100%;
+  }
+
+  .page-publications .main-container {
+    padding-top: 112px;
   }
 }
