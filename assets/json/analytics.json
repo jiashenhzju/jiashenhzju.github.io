@@ -1,7 +1,7 @@
 {
-  "totalPageViews": 1428,
-  "totalVisitors": 183,
-  "lastUpdated": "2026-11-10",
+  "totalPageViews": 1442,
+  "totalVisitors": 188,
+  "lastUpdated": "2026-11-11",
   "geoData": [
     {
       "country": "China",
@@ -9,11 +9,11 @@
     },
     {
       "country": "United States",
-      "visitors": 59
+      "visitors": 61
     },
     {
       "country": "Singapore",
-      "visitors": 38
+      "visitors": 39
     },
     {
       "country": "Taiwan",
@@ -32,6 +32,10 @@
       "visitors": 4
     },
     {
+      "country": "Vietnam",
+      "visitors": 2
+    },
+    {
       "country": "Moldova",
       "visitors": 1
     },
@@ -40,7 +44,7 @@
       "visitors": 1
     },
     {
-      "country": "Vietnam",
+      "country": "Indonesia",
       "visitors": 1
     },
     {
